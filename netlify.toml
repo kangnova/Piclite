@@ -1,0 +1,12 @@
+# Netlify: hosting statis + SPA rewrite.
+# CATATAN: backend statistik/AdSense (folder api/) berformat Vercel Functions.
+# Di Netlify, halaman #admin & tracking butuh adaptasi handler — lebih praktis
+# memakai Vercel agar backend berjalan tanpa perubahan kode.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
