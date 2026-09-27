@@ -6,8 +6,8 @@
  * coba tanpa menyentuh statistik pengunjung asli di tanggal lain.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getSql, json } from '../_lib/db';
-import { requireAdmin } from '../_lib/auth';
+import { getSql, json } from '../../server/db';
+import { requireAdmin } from '../../server/auth';
 
 const KINDS = new Set(['visit', 'image', 'pdf', 'sample']);
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
