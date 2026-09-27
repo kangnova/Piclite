@@ -43,7 +43,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const db = getSql();
+    const db = await getSql();
     const conds: string[] = [];
     const params: string[] = [];
     if (from) conds.push(`day >= $${params.push(from)}`);

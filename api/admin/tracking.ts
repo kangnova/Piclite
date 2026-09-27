@@ -18,7 +18,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  const db = getSql();
+  const db = await getSql();
   try {
     if (req.method === 'GET') {
       const rows = (await db`SELECT value FROM app_config WHERE key = 'tracking' LIMIT 1`) as {

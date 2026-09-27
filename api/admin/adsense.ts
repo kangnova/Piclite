@@ -41,7 +41,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  const db = getSql();
+  const db = await getSql();
 
   try {
     if (req.method === 'GET') {

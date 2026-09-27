@@ -31,7 +31,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const db = getSql();
+    const db = await getSql();
 
     const totals = (await db`
       SELECT kind,

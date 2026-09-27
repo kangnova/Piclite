@@ -20,7 +20,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   // Saklar jeda pencatatan (diatur dari #admin): saat jeda, hit diabaikan.
   try {
-    const rows = (await getSql()`SELECT value FROM app_config WHERE key = 'tracking' LIMIT 1`) as {
+    const rows = (await (await getSql())`SELECT value FROM app_config WHERE key = 'tracking' LIMIT 1`) as {
       value?: { enabled?: boolean };
     }[];
     if (rows[0]?.value?.enabled === false) {
@@ -40,7 +40,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    await getSql()`
+    await (await getSql())`
       INSERT INTO usage_daily (day, kind, loads, downloads)
       VALUES (CURRENT_DATE, ${kind}, ${kind === 'visit' ? 0 : 1}, ${downloads})
       ON CONFLICT (day, kind) DO UPDATE

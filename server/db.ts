@@ -1,15 +1,29 @@
-import { neon } from '@neondatabase/serverless';
+import type { NeonQueryFunction } from '@neondatabase/serverless';
 
-/** Koneksi Neon per-instans (serverless: satu koneksi per invocation). */
-let sql: ReturnType<typeof neon> | null = null;
+/**
+ * Koneksi Neon per-instans (serverless: satu koneksi per invocation).
+ * Import driver dibuat LAZY via dynamic import: beberapa runtime bundling
+ * (Vercel NFT) dapat gagal pada static import di tahap evaluasi modul —
+ * dengan dynamic import, kegagalan tertangkap dan fungsi tetap hidup.
+ */
+type SqlClient = NeonQueryFunction<false, false>;
 
-export function getSql(): ReturnType<typeof neon> {
-  if (!sql) {
-    const url = process.env.DATABASE_URL;
-    if (!url) throw new Error('DATABASE_URL tidak diset');
-    sql = neon(url);
+let sqlPromise: Promise<SqlClient> | null = null;
+
+async function getSqlClient(): Promise<SqlClient> {
+  if (!sqlPromise) {
+    sqlPromise = import('@neondatabase/serverless').then(({ neon }) => {
+      const url = process.env.DATABASE_URL;
+      if (!url) throw new Error('DATABASE_URL tidak diset');
+      return neon(url) as SqlClient;
+    });
   }
-  return sql;
+  return sqlPromise;
+}
+
+/** Pemanggil harus `await getSql()` lalu pakai hasilnya sebagai tag template. */
+export async function getSql(): Promise<SqlClient> {
+  return getSqlClient();
 }
 
 export interface AdminRequest {
