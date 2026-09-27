@@ -22,7 +22,7 @@ const DEFAULT_CONFIG: PublicAdsenseConfig = {
 };
 
 export default async function handler(_req: VercelRequest, res: VercelResponse) {
-  const { json, getSql } = await import('./_shared');
+  const { json, getSql } = await import('./_shared.js');
   res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=600');
   try {
     const rows = (await (await getSql())`SELECT value FROM app_config WHERE key = 'adsense' LIMIT 1`) as {

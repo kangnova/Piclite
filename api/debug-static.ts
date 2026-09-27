@@ -4,7 +4,7 @@
  * adalah penyebab FUNCTION_INVOCATION_FAILED.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { json } from './_shared';
+import { json } from './_shared.js';
 
 export default async function handler(_req: VercelRequest, res: VercelResponse) {
   json(res, 200, { staticImport: 'ok' });

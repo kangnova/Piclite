@@ -3,8 +3,8 @@
  * POST /api/admin/adsense — simpan konfigurasi; slot ID divalidasi ketat.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getSql, json } from '../_shared';
-import { requireAdmin } from '../_shared';
+import { getSql, json } from '../_shared.js';
+import { requireAdmin } from '../_shared.js';
 
 const CLIENT_RE = /^ca-pub-\d{10,20}$/;
 const SLOT_RE = /^\d{8,12}$/;

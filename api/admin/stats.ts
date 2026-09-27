@@ -4,8 +4,8 @@
  * terakhir untuk digambar grafik di halaman admin.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getSql, json } from '../_shared';
-import { requireAdmin } from '../_shared';
+import { getSql, json } from '../_shared.js';
+import { requireAdmin } from '../_shared.js';
 
 interface UsageRow {
   kind: string;

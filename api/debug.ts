@@ -7,7 +7,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 export default async function handler(_req: VercelRequest, res: VercelResponse) {
   const steps: Record<string, string> = {};
   try {
-    const shared = await import('./_shared');
+    const shared = await import('./_shared.js');
     steps.shared_import = 'ok';
     steps.has_json = typeof shared.json;
     const sql = await shared.getSql();

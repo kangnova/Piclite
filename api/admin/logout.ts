@@ -1,7 +1,7 @@
 /** POST /api/admin/logout — hapus cookie sesi admin. */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { json } from '../_shared';
-import { clearSession } from '../_shared';
+import { json } from '../_shared.js';
+import { clearSession } from '../_shared.js';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
