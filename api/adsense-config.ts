@@ -4,7 +4,7 @@
  * Cache edge 5 menit agar murah dan cepat.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getSql, json } from '../server/db';
+import { getSql, json } from './_shared';
 
 export interface PublicAdsenseConfig {
   enabled: boolean;

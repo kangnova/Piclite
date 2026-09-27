@@ -4,7 +4,7 @@
  * Tidak menyimpan IP, nama file, maupun isi dokumen — hanya hitungan harian.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getSql, json, rateLimit } from '../server/db';
+import { getSql, json, rateLimit } from './_shared';
 
 const KINDS = new Set(['visit', 'image', 'pdf', 'sample']);
 

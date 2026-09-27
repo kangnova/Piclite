@@ -3,8 +3,8 @@
  * Rate limit ketat: 5 percobaan / 15 menit / IP.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { json, rateLimit } from '../../server/db';
-import { attachSession, makeSessionToken, passwordMatches } from '../../server/auth';
+import { json, rateLimit } from '../_shared';
+import { attachSession, makeSessionToken, passwordMatches } from '../_shared';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
