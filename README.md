@@ -17,9 +17,7 @@
 - 🔧 Admin dashboard lives at `/#admin` (password-protected; not part of the public demo)
 - ❤️ Health check: [`/api/health`](https://piclite-zeta.vercel.app/api/health)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkangnova%2FPiclite&env=DATABASE_URL,ADMIN_PASSWORD,ADMIN_SECRET&project-name=piclite)
-
-One-click deploy provisions everything; the only secrets you need are a free [Neon](https://neon.tech) Postgres URL and two admin credentials (see [Deployment](#️-deployment)).
+Self-hosting is straightforward — see [Deployment](#-deployment). You only need a free [Neon](https://neon.tech) Postgres URL and two admin credentials.
 
 ## 💡 Why PicLite
 
@@ -100,7 +98,7 @@ Admin dashboard: `http://localhost:5173/#admin` · Privacy page: `/privacy`
 
 ## 📦 Deployment
 
-1. Click the **Deploy with Vercel** button above (or import the repo at [vercel.com/new](https://vercel.com/new))
+1. Import the repo at [vercel.com/new](https://vercel.com/new) (or use your own VPS/Node host)
 2. Set the three environment variables:
 
    | Variable | Purpose |
