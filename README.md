@@ -11,12 +11,15 @@
 
 ## 🚀 Live Demo
 
+**Try it here:** [https://piclite-zeta.vercel.app](https://piclite-zeta.vercel.app) — drag a photo or PDF, done.
+
+- 📄 [Privacy Policy](https://piclite-zeta.vercel.app/privacy) (bilingual)
+- 🔧 Admin dashboard lives at `/#admin` (password-protected; not part of the public demo)
+- ❤️ Health check: [`/api/health`](https://piclite-zeta.vercel.app/api/health)
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkangnova%2FPiclite&env=DATABASE_URL,ADMIN_PASSWORD,ADMIN_SECRET&project-name=piclite)
 
-<!-- TODO(owner): after deploying, replace the line below with your real URL -->
-**Try it here:** `https://piclite-<your-project>.vercel.app` — open it, drag a photo or PDF, done.
-
-One-click deploy provisions everything; the only secrets you need are a free [Neon](https://neon.tech) Postgres URL and two admin credentials (see [Deployment](#-deployment)).
+One-click deploy provisions everything; the only secrets you need are a free [Neon](https://neon.tech) Postgres URL and two admin credentials (see [Deployment](#️-deployment)).
 
 ## 💡 Why PicLite
 

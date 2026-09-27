@@ -12,6 +12,7 @@ import statsHandler from './api/admin/stats';
 import adsenseAdminHandler from './api/admin/adsense';
 import statsResetHandler from './api/admin/stats-reset';
 import trackingHandler from './api/admin/tracking';
+import healthHandler from './api/health';
 
 const rootDir = dirname(fileURLToPath(import.meta.url));
 const pdfjsDir = resolve(rootDir, 'node_modules/pdfjs-dist');
@@ -87,6 +88,7 @@ function devApi(): Plugin {
         '/api/admin/adsense': { GET: adsenseAdminHandler, POST: adsenseAdminHandler },
         '/api/admin/stats-reset': { POST: statsResetHandler },
         '/api/admin/tracking': { GET: trackingHandler, POST: trackingHandler },
+        '/api/health': { GET: healthHandler },
       };
 
       server.middlewares.use(async (req, res, next) => {
